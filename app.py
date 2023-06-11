@@ -5,14 +5,14 @@ app=Flask('__name__')
 BOT_TOKEN=os.getenv('BOT_TOKEN')
 api=f'https://api.telegram.org/bot{BOT_TOKEN}'
 def fetchfile():
-    e=open("fileinfo.json","r+")
+    e=open("/fileinfo.json","r+")
     v=json.loads(e.read())
     return v
 #Functions Used in documt process
 def is_admin(chat_id):        
     chat_id=str(chat_id)
     admin_previlage=False
-    f=open("superadmin.json","r+")
+    f=open("/superadmin.json","r+")
     e=json.loads(f.read()).keys()
     f.close()
     if chat_id in list(e):
@@ -20,7 +20,7 @@ def is_admin(chat_id):
     return admin_previlage
 
 def addfile(file_name,file_id):
-    e=open("file.json","r+")
+    e=open("/file.json","r+")
     v=json.loads(e.read())
     e.seek(0)
     v.update({file_name:file_id})
@@ -30,12 +30,12 @@ def addfile(file_name,file_id):
     return True          
 
 def fetchfileid(file_name):
-    e=open("file.json","r+")
+    e=open("/file.json","r+")
     v=json.loads(e.read())
     file_id=v.get(file_name)
     return file_id
 def remfile(file_name):
-    e=open("file.json","r+")
+    e=open("/file.json","r+")
     v=json.loads(e.read())
     e.seek(0)
     v.pop(file_name)
@@ -128,7 +128,7 @@ def parse_message(message):
    return chat_id ,msg_id
 
 def addstage(chat_id):
-    s=open("/storage/emulated/0/Documents/Pronote/stage.json","r+")
+    s=open("/stage.json","r+")
     v=json.loads(s.read())
     s.seek(0)
     v.update({chat_id:{ "stage":0 , "s_sem":None,"s_sub":None,"select":None}})
@@ -137,7 +137,7 @@ def addstage(chat_id):
     return True
     
 def updatestage(chat_id,value,mode):
-    s=open("stage.json","r+")
+    s=open("/stage.json","r+")
     v=json.loads(s.read())
     #print(v)
     chat_id=str(chat_id)
@@ -168,7 +168,7 @@ def updatestage(chat_id,value,mode):
     return True
         
 def fetchstage(chat_id):
-    s=open("stage.json","r+")    
+    s=open("/stage.json","r+")    
     v=json.loads(s.read())
     s.close()
     chat_id=str(chat_id)
