@@ -1,0 +1,6 @@
+THIS IS A CODE FOR MY TELEGRAM BOT WHICH HELPS 
+TO FETCH OR ACTS LIKE SOURCES FOR
+Materials and Other Notes Of 
+Jntuh B.tech ECE R18 students....
+# jntuhnotes
+I hope this will get Work and becomes useful to otherss.........
