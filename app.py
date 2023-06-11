@@ -5,14 +5,14 @@ app=Flask('__name__')
 BOT_TOKEN="5851531878:AAGVloGp5p0qksJYkmsFxtBoOaZKuJonsvY"
 api=f'https://api.telegram.org/bot{BOT_TOKEN}'
 def fetchfile():
-    e=open("/storage/emulated/0/Documents/Pronote/fileinfo.json","r+")
+    e=open("fileinfo.json","r+")
     v=json.loads(e.read())
     return v
 #Functions Used in documt process
 def is_admin(chat_id):        
     chat_id=str(chat_id)
     admin_previlage=False
-    f=open("/storage/emulated/0/Documents/Pronote/superadmin.json","r+")
+    f=open("superadmin.json","r+")
     e=json.loads(f.read()).keys()
     f.close()
     if chat_id in list(e):
@@ -20,7 +20,7 @@ def is_admin(chat_id):
     return admin_previlage
 
 def addfile(file_name,file_id):
-    e=open("/storage/emulated/0/Documents/Pronote/file.json","r+")
+    e=open("file.json","r+")
     v=json.loads(e.read())
     e.seek(0)
     v.update({file_name:file_id})
@@ -30,12 +30,12 @@ def addfile(file_name,file_id):
     return True          
 
 def fetchfileid(file_name):
-    e=open("/storage/emulated/0/Documents/Pronote/file.json","r+")
+    e=open("file.json","r+")
     v=json.loads(e.read())
     file_id=v.get(file_name)
     return file_id
 def remfile(file_name):
-    e=open("/storage/emulated/0/Documents/Pronote/file.json","r+")
+    e=open("file.json","r+")
     v=json.loads(e.read())
     e.seek(0)
     v.pop(file_name)
