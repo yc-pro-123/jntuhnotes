@@ -137,7 +137,7 @@ def addstage(chat_id):
     return True
     
 def updatestage(chat_id,value,mode):
-    s=open("/storage/emulated/0/Documents/Pronote/stage.json","r+")
+    s=open("stage.json","r+")
     v=json.loads(s.read())
     #print(v)
     chat_id=str(chat_id)
@@ -168,7 +168,7 @@ def updatestage(chat_id,value,mode):
     return True
         
 def fetchstage(chat_id):
-    s=open("/storage/emulated/0/Documents/Pronote/stage.json","r+")    
+    s=open("stage.json","r+")    
     v=json.loads(s.read())
     s.close()
     chat_id=str(chat_id)
