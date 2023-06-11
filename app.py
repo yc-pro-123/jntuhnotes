@@ -2,7 +2,7 @@ import json , requests
 import datetime ,time
 from flask import Flask , request ,Response
 app=Flask('__name__')
-BOT_TOKEN=os.getenv('BOT_TOKEN1')
+BOT_TOKEN=os.getenv('BOT_TOKEN')
 api=f'https://api.telegram.org/bot{BOT_TOKEN}'
 def fetchfile():
     e=open("fileinfo.json","r+")
