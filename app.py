@@ -1,8 +1,8 @@
-import json , requests
+import json , requests ,os
 import datetime ,time
 from flask import Flask , request ,Response
 app=Flask('__name__')
-BOT_TOKEN="5851531878:AAGVloGp5p0qksJYkmsFxtBoOaZKuJonsvY"
+BOT_TOKEN=os.getenv("BOT_TOKEN")
 api=f'https://api.telegram.org/bot{BOT_TOKEN}'
 def fetchfile(sem):
     e=open("fileinfo.json","r+")
@@ -320,31 +320,3 @@ def main():
         f_id=fetchfileid(each)
         print(f_id)
         senddoc(chat_id,str(f_id))'''
-#    msg_id=m["result"]["message_id"]
-#    print(msg_id)
-    #time.sleep(2)
-    #print(dltmsg(chat_id,75).text)
-    a=["abc","bcd"]
-    #print(stage_2(chat_id))
-    #addstage("chintu4gggg")
-    #updatestage('1468745769',1,0)
-    print("bcd" in a)
-    #supported=["photo","document","text"]
-#    format_list=["ggfg","gjg","hjk"]
-#    #format_list=list(msg["message"].keys())
-#    for each in supported:
-#        if(each in format_list) == True:
-#            type=True
-#        else:
-#            type=False
-#    if type==True:
-#        print("It is Supported")
-#    else:
-#        print("Un Supported")
-
-    
-    
-    
-if __name__ == '__main__':
-    #main()
-    app.run(debug=True)
