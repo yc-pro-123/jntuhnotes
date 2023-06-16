@@ -5,14 +5,14 @@ app=Flask('__name__')
 BOT_TOKEN=os.getenv("BOT_TOKEN")
 api=f'https://api.telegram.org/bot{BOT_TOKEN}'
 def fetchfile(sem):
-    e=open("fileinfo.json","r+")
+    e=open("fileinfo.json","r")
     v=json.loads(e.read())
     return v.get(sem)
 #Functions Used in documt process
 def is_admin(chat_id):        
     chat_id=str(chat_id)
     admin_previlage=False
-    f=open("superadmin.json","r+")
+    f=open("superadmin.json","r")
     e=json.loads(f.read()).keys()
     f.close()
     if chat_id in list(e):
@@ -20,7 +20,7 @@ def is_admin(chat_id):
     return admin_previlage
 
 def addfile(file_name,file_id):
-    e=open("file.json","r+")
+    e=open("file.json","r")
     v=json.loads(e.read())
     e.seek(0)
     v.update({file_name:file_id})
@@ -30,13 +30,13 @@ def addfile(file_name,file_id):
     return True          
 
 def fetchfileid(file_name):
-    e=open("file.json","r+")
+    e=open("file.json","r")
     v=json.loads(e.read())
     file_id=v.get(file_name)
     #print(json.dumps(v,indent=3))
     return file_id
 def remfile(file_name):
-    e=open("file.json","r+")
+    e=open("file.json","r")
     v=json.loads(e.read())
     e.seek(0)
     v.pop(file_name)
